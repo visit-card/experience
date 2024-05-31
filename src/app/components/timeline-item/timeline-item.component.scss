@@ -1,0 +1,128 @@
+.timeline__item {
+  display: flex;
+  position: relative;
+
+  gap: 8px;
+
+  width: 100%;
+
+  .timeline__arrow {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    background: transparent;
+    border-radius: 7px;
+
+    .timeline__arrow-icon {
+      display: block;
+      width: 100%;
+
+      transform: rotate(-90deg);
+      transition: transform 0.4s cubic-bezier(0.65,0,0.35,1);
+    }
+  }
+
+  .timeline__arrow[expanded="true"] {
+    .timeline__arrow-icon {
+      transform: rotate(0deg);
+    }
+  }
+
+  .timeline__arrow:focus-visible,
+  .timeline__arrow:hover {
+    background: #737a8c66;
+  }
+
+  .timeline__dot {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    margin-top: 12px;
+    margin-right: 20px;
+    background: #FFFFFF;
+    border-radius: 50%;
+  }
+
+  .timeline__content {
+    .timeline__content-title {
+      time {
+        line-height: 2.4em;
+      }
+
+      strong {
+        line-height: 1.5em;
+      }
+    }
+
+    .timeline__content-body {
+      display: flex;
+      flex-direction: column;
+
+      max-height: 0;
+      overflow: hidden;
+      gap: 20px;
+
+      .timeline__body-description {
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        border-radius: 10px;
+        background: #737a8c33;
+
+        padding: 15px;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity 0.4s linear, visibility 0.4s linear;
+
+        .timeline__description-skills {
+          display: flex;
+
+          gap: 20px;
+
+          span {
+            min-width: 100px;
+            max-width: 140px;
+            height: 40px;
+
+            padding: 10px;
+
+            text-align: center;
+            line-height: 0.8em;
+
+            box-shadow: 0 0 2px rgba(255, 255, 255, 0.7);
+            border-radius: 3px;
+          }
+
+          span:hover {
+            box-shadow: 0 0 17px rgba(255, 255, 255, 0.7);
+          }
+        }
+      }
+    }
+  }
+}
+
+:host:not(:last-child) {
+  .timeline__item:before {
+    position: absolute;
+
+    content: '';
+
+    top: 15px;
+    left: 68px;
+    height: 100%;
+    width: 4px;
+
+    background: #FFFFFF;
+  }
+}

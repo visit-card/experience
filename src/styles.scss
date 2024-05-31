@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@use "src/styles/mixins/text";
+
+html, body {
+  height: 100%;
+  background: black;
+}
+
+body {
+  margin: 0;
+
+  color: white;
+}
+
+p, span, time {
+  @include text.general-text();
+}
+
+strong {
+  @include text.title-text();
+}
+
+h1 {
+  @include text.title-text();
+
+  font-size: 2.4em;
+}
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,22 @@
+<div class="timeline__item">
+  <button type="button" class="timeline__arrow" [attr.expanded]="isExpanded" (click)="onClick()">
+    <img class="timeline__arrow-icon" src="assets/arrow.svg" />
+  </button>
+  <div class="timeline__dot">
+  </div>
+  <div class="timeline__content">
+    <div class="timeline__content-title">
+      <time>{{date}}</time>
+      <br>
+      <strong>{{companyName}}</strong>
+    </div>
+    <div #body class="timeline__content-body" [ngStyle]="{ 'transition': 'max-height ' + projects.length * 0.4 + 's linear' }">
+      <div class="timeline__body-description" *ngFor="let project of projects">
+        <p>{{project.description}}</p>
+        <div class="timeline__description-skills">
+          <span *ngFor="let skill of project.skills">{{skill}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
