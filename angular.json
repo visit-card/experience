@@ -20,6 +20,7 @@
             "outputPath": "dist/experience",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/experience/",
             "polyfills": [
               "zone.js"
             ],
